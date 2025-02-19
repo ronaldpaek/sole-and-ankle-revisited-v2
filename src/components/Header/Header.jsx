@@ -12,11 +12,6 @@ import VisuallyHidden from '../VisuallyHidden';
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
 
-  // For our mobile hamburger menu, we'll want to use a button
-  // with an onClick handler, something like this:
-  //
-  // <button onClick={() => setShowMobileMenu(true)}>
-
   return (
     <header>
       <SuperHeader />
@@ -24,6 +19,7 @@ const Header = () => {
         <LogoWrapper>
           <Logo />
         </LogoWrapper>
+
         <DesktopNav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -32,6 +28,7 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </DesktopNav>
+
         <MobileActions>
           <ShoppingBagButton>
             <Icon id="shopping-bag" />
@@ -41,11 +38,12 @@ const Header = () => {
             <Icon id="search" />
             <VisuallyHidden>Search</VisuallyHidden>
           </UnstyledButton>
-          <UnstyledButton>
+          <UnstyledButton onClick={() => setShowMobileMenu(true)}>
             <Icon id="menu" />
             <VisuallyHidden>Open menu</VisuallyHidden>
           </UnstyledButton>
         </MobileActions>
+        
         <Filler />
       </MainHeader>
 
